@@ -34,11 +34,11 @@ int main() {
     std::thread java_thread(start_java);
     std::thread cpp_thread(start_cpp);
     std::thread python_thread(start_python);
-    //std::thread assembler_thread(start_assembler);
+    std::thread assembler_thread(start_assembler);
     java_thread.join();
     cpp_thread.join();
     python_thread.join();
-    //assembler_thread.join();
+    assembler_thread.join();
 
     std::filesystem::remove_all("langs/temp");
     std::cout << "\nApp will automatically close in 20 seconds";
@@ -95,6 +95,9 @@ void start_python() {
 }
 
 void start_assembler() {
+    char path[] = "langs/OS_practice_4_assembler.exe";
+    char* args[] = { path, NULL };
+    _spawnv(_P_WAIT, args[0], args);
 
     long long res;
     double t;
