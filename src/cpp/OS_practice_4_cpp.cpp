@@ -1,4 +1,5 @@
 ﻿#include <fstream>
+#include <time.h>
 
 short basic;
 long long b;
