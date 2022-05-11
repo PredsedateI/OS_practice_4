@@ -1,35 +1,25 @@
 .DATA
-    constbasic dq ?
-    constb dq ?
-    constc dq ?
     i dq ?
     iter dq 100000000
     
 .CODE
 f PROC C
 
-    mov constbasic, rcx
-    mov constb, rdx
-    mov constc, r8
-    mov i, r9
-
-    mov rax, 0
-    mov rbx, [constb]
-    add rbx, rbx
-    add rbx, [constc]
-    mov rcx, [i]
+    xor rax, rax
 
 loopf:
     mov [i], rcx
     mov rcx, [iter]
 
 loopfor:
-    add rax, rbx
+    add rax, r8
+    add rax, r8
+    add rax, r9
     sub rax, [i]
     loop loopfor
 
     mov rcx, [i]
-    sub rcx, [constbasic]
+    sub rcx, rdx
     loop loopf
 
     ret

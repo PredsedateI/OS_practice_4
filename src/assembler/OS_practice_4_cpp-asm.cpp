@@ -18,7 +18,7 @@ int main() {
 
 	long ts, te;
 	ts = clock();
-	result = f(basic, b, c, i);
+	result = f(i, basic, b, c);
 	te = clock();
 	float dt = ((float)(te - ts)) / CLOCKS_PER_SEC;
 
